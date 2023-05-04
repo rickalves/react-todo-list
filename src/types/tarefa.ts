@@ -1,5 +1,7 @@
 export interface Itarefa{
-    id:number
+    id: string,
     nome:string,
-    duracao:string
+    duracao:string,
+    selecionado:boolean,
+    completado:boolean
 }

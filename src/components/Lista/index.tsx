@@ -2,10 +2,16 @@ import style from './Lista.module.scss';
 import Item from './Item'
 import { Itarefa } from '../../types/tarefa';
 
-export default function Lista({ tarefas }: {tarefas:Itarefa[]}){
+interface Props{
+    tarefas: Itarefa[],
+    selecionaTarefa:(tarefaSelecionada:Itarefa) => void
+}
+
+export default function Lista({ tarefas, selecionaTarefa }:Props){
     
     const listaTarefas = tarefas.map(tarefa =>
         <Item
+            selecionaTarefa={selecionaTarefa}
             key={tarefa.id}
             {...tarefa}
         />

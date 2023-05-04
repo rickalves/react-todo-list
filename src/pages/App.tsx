@@ -5,36 +5,25 @@ import style from './App.module.scss'
 import Cronometro from '../components/Cronometro';
 import { Itarefa } from '../types/tarefa';
 function App() {
-//   const items = [
-//     {
-//         id:1,
-//         nome: 'React',
-//         duracao: '02:00:00'
-//     },
-//     {
-//         id:2,
-//         nome: 'Python',
-//         duracao: '01:00:00'
-//     },
-//     {
-//         id:3,
-//         nome: 'JavaScript',
-//         duracao: '01:00:00'
-//     },
-//     {
-//         id:4,
-//         nome: 'Google Cloud',
-//         duracao: '02:00:00'
-//     },
-// ];
+  const [tarefas, setTarefas] = useState<Itarefa[]>([])
+  const [selecionado, setSelecionado] = useState<Itarefa>();
 
-const [tarefas, setTarefas] = useState<Itarefa[]>([])
- 
-return (
+  function selecionaTarefa(tarefaSelecionada: Itarefa) {
+    setSelecionado(tarefaSelecionada);
+    setTarefas(tarefasAnteriores => tarefasAnteriores.map(tarefa => ({
+      ...tarefa,
+      selecionado: tarefa.id === tarefaSelecionada.id ? true : false
+    })))
+  }
+
+  return (
     <div className={style.AppStyle}>
-        <Formulario setTarefas={setTarefas}/>
-        <Lista tarefas={tarefas}/>
-        <Cronometro />
+      <Formulario setTarefas={setTarefas} />
+      <Lista 
+        tarefas={tarefas}
+        selecionaTarefa={selecionaTarefa}
+      />
+      <Cronometro />
     </div>
   );
 }
