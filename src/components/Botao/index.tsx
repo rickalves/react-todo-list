@@ -2,18 +2,20 @@ import React from 'react'
 import style from './Botao.module.scss'
 interface BtnProps {
     type?: "button" | "submit" | "reset" | undefined,
-    children:string
+    children:string,
+    onClick?: () => void
 }
 
 class Botao extends React.Component<BtnProps>{
     render(){
-        const {type = "button"} = this.props
+        const {type = "button", children, onClick} = this.props
         return (
             <button 
                 type={type} 
                 className={style.botao}
+                onClick={onClick}
             >
-                {this.props.children}
+                {children}
             </button>
         )
     }
