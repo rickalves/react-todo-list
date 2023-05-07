@@ -11,11 +11,17 @@ export default function Item({selecionaTarefa, ...tarefa }:Props){
             className={`
                 ${style.item} 
                 ${tarefa.selecionado ? style.itemSelecionado : ""}
+                ${tarefa.completado ? style.itemCompletado : ""}
             `}
-            onClick={() => selecionaTarefa(tarefa)}
+            onClick={() => !tarefa.completado && selecionaTarefa(tarefa)}
         >
             <h3>{tarefa.nome}</h3>
             <span>{tarefa.duracao}</span>
+            {tarefa.completado && 
+            <span 
+                className={style.concluido}
+                aria-label='tarefa completada'
+            ></span>}
         </li>
     );
 }
