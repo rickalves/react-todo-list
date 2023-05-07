@@ -5,7 +5,7 @@ Esse é um aplicativo de lista de tarefas
 | -------------  | --- |
 | :sparkles: Nome        | **Todo List**
 | :label: Tecnologias | React, Nodejs, Sass
-| :rocket: URL         | 
+| :rocket: URL         | https://react-todo-list-one-kappa.vercel.app/
 
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
